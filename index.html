@@ -1,311 +1,492 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glowcar | Limpieza Profesional a Domicilio en Bahía Blanca</title>
-    <style>
-        /* Estilos Generales con Paleta Premium: Negro, Gris Oscuro y Naranja Vibrante */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
-        body {
-            background-color: #121212;
-            color: #ffffff;
-            line-height: 1.6;
-        }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        /* Encabezado Fijo */
-        header {
-            background-color: #1a1a1a;
-            padding: 20px 0;
-            border-bottom: 3px solid #ff6600;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-        }
-        .header-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-size: 32px;
-            font-weight: 900;
-            color: #ff6600;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-style: italic;
-        }
-        
-        /* Sección Principal (Hero) */
-        .hero {
-            background: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.95)), url('https://images.unsplash.com/photo-1607860108855-64acf2078ed9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            padding: 90px 0;
-            text-align: center;
-            border-bottom: 1px solid #2a2a2a;
-        }
-        .hero h1 {
-            font-size: 55px;
-            font-weight: 900;
-            margin-bottom: 15px;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-        }
-        .hero h1 span {
-            color: #ff6600;
-        }
-        .hero p {
-            font-size: 22px;
-            margin-bottom: 25px;
-            color: #dddddd;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .hero .ubicacion {
-            font-size: 20px;
-            color: #ff6600;
-            margin-bottom: 30px;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-        
-        /* Cartel Destacado de Domicilio */
-        .badge-domicilio {
-            display: inline-block;
-            background: linear-gradient(135deg, #ff6600, #ff4500);
-            color: white;
-            padding: 14px 35px;
-            font-weight: bold;
-            font-size: 24px;
-            border-radius: 50px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 6px 25px rgba(255, 102, 0, 0.4);
-            border: 2px solid rgba(255,255,255,0.1);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GLOWCAR – Estética Vehicular y Limpieza a Domicilio · Bahía Blanca</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* Sección de Servicios */
-        .services-section {
-            padding: 80px 0;
-            background-color: #121212;
-        }
-        .services-section h2 {
-            text-align: center;
-            font-size: 38px;
-            font-weight: 800;
-            margin-bottom: 50px;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            position: relative;
-        }
-        .services-section h2::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background-color: #ff6600;
-            margin: 15px auto 0 auto;
-            border-radius: 2px;
-        }
-        
-        /* Grilla de Categorías */
-        .grid-categorias {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-        }
-        @media (min-width: 768px) {
-            .grid-categorias {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        .categoria-card {
-            background-color: #1a1a1a;
-            padding: 40px;
-            border-radius: 15px;
-            border-left: 5px solid #ff6600;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: transform 0.3s ease;
-        }
-        .categoria-card:hover {
-            transform: translateY(-5px);
-        }
-        .categoria-card h3 {
-            font-size: 26px;
-            font-weight: 700;
-            margin-bottom: 25px;
-            color: #ff6600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 2px solid #2a2a2a;
-            padding-bottom: 12px;
-        }
-        .lista-servicios {
-            list-style: none;
-        }
-        .lista-servicios li {
-            margin-bottom: 18px;
-            position: relative;
-            padding-left: 30px;
-            font-size: 16px;
-            color: #e0e0e0;
-        }
-        .lista-servicios li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #ff6600;
-            font-weight: 900;
-            font-size: 18px;
-        }
-        .lista-servicios strong {
-            color: #ffffff;
-            font-weight: 600;
-        }
+    :root {
+      --orange:     #FF6B00;
+      --orange-hot: #FF8C00;
+      --orange-dark:#CC4E00;
+      --black:      #0A0A0A;
+      --card:       #161616;
+      --white:      #FFFFFF;
+      --muted:      #999999;
+      --radius:     12px;
+    }
 
-        /* Sección de Contacto Directo */
-        .contacto-section {
-            background-color: #1a1a1a;
-            padding: 80px 0;
-            text-align: center;
-            border-top: 1px solid #2a2a2a;
-        }
-        .contacto-section h2 {
-            font-size: 36px;
-            font-weight: 800;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            color: #ffffff;
-        }
-        .contacto-section p {
-            margin-bottom: 45px;
-            color: #aaaaaa;
-            font-size: 18px;
-        }
-        .btn-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 18px 30px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 8px;
-            font-size: 18px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-        }
-        .btn:hover {
-            transform: scale(1.03);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-        }
-        
-        .btn-whatsapp { background-color: #25D366; }
-        .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
-        .btn-facebook { background-color: #1877F2; }
+    html { scroll-behavior: smooth; }
 
-        /* Pie de Página */
-        footer {
-            background-color: #0c0c0c;
-            text-align: center;
-            padding: 30px 0;
-            font-size: 15px;
-            color: #777777;
-            border-top: 1px solid #1a1a1a;
-        }
-        footer p strong { color: #ff6600; }
-    </style>
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 48px;
+      background: rgba(10,10,10,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,107,0,0.15);
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 4px;
+      color: var(--orange);
+      text-shadow: 0 0 20px rgba(255,107,0,0.6);
+    }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.85rem;
+      font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--orange); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 50% 60%, rgba(255,107,0,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 100% 80% at 50% 100%, rgba(255,107,0,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,107,0,0.12);
+      border: 1px solid rgba(255,107,0,0.4);
+      color: var(--orange);
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; padding: 6px 18px; border-radius: 999px;
+      margin-bottom: 28px;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 14vw, 12rem);
+      line-height: 0.9;
+      letter-spacing: 8px;
+      position: relative;
+      display: inline-block;
+    }
+    .hero-title .glow-word {
+      background: linear-gradient(135deg, var(--orange) 0%, var(--orange-hot) 50%, #FFAA00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 30px rgba(255,107,0,0.5));
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+    @keyframes pulse-glow {
+      0%, 100% { filter: drop-shadow(0 0 20px rgba(255,107,0,0.4)); }
+      50%       { filter: drop-shadow(0 0 50px rgba(255,140,0,0.8)); }
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      color: var(--muted); font-weight: 300; letter-spacing: 3px;
+      margin-top: 12px; text-transform: uppercase;
+    }
+    .hero-sub span { color: var(--orange); font-weight: 600; }
+
+    .hero-desc {
+      max-width: 520px; margin: 28px auto 0;
+      font-size: 1rem; color: #bbbbbb; line-height: 1.7;
+    }
+
+    .hero-cta {
+      margin-top: 44px; display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+    }
+    .btn-primary {
+      background: var(--orange); color: var(--white);
+      padding: 14px 36px; border-radius: 999px;
+      font-weight: 700; font-size: 0.9rem; letter-spacing: 1px;
+      text-decoration: none; text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(255,107,0,0.4);
+    }
+    .btn-primary:hover {
+      background: var(--orange-hot);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(255,107,0,0.6);
+    }
+    .btn-outline {
+      border: 2px solid rgba(255,107,0,0.5); color: var(--orange);
+      padding: 14px 36px; border-radius: 999px;
+      font-weight: 700; font-size: 0.9rem; letter-spacing: 1px;
+      text-decoration: none; text-transform: uppercase;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+    }
+    .btn-outline:hover {
+      border-color: var(--orange); background: rgba(255,107,0,0.08);
+      transform: translateY(-2px);
+    }
+
+    /* domicilio strip */
+    .domicilio-strip {
+      background: var(--orange);
+      padding: 14px 24px;
+      text-align: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 5px;
+      color: var(--black);
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 90px 24px; }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      letter-spacing: 4px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .section-title span { color: var(--orange); }
+    .section-divider {
+      width: 60px; height: 3px;
+      background: var(--orange);
+      margin: 0 auto 56px;
+      border-radius: 2px;
+    }
+
+    /* ── ESTÉTICA VEHICULAR ── */
+    #vehicular { background: #0A0A0A; }
+    #hogar { background: #0F0F0F; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px; max-width: 1100px; margin: 0 auto;
+    }
+    .service-card {
+      background: var(--card);
+      border: 1px solid rgba(255,107,0,0.1);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .service-card::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--orange), var(--orange-hot));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover {
+      border-color: rgba(255,107,0,0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(255,107,0,0.12);
+    }
+    .service-card:hover::after { transform: scaleX(1); }
+
+    .service-icon {
+      font-size: 2.4rem; margin-bottom: 16px; display: block;
+    }
+    .service-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem; letter-spacing: 2px; color: var(--white);
+      margin-bottom: 8px;
+    }
+    .service-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+    .main-service {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #1a0f00 0%, #1a1000 100%);
+      border-color: rgba(255,107,0,0.3);
+      display: flex; align-items: center; gap: 32px;
+      flex-wrap: wrap;
+    }
+    .main-service .service-icon { font-size: 3.5rem; margin-bottom: 0; }
+    .main-service-text h3 { font-size: 2rem; }
+    .main-service-text p { font-size: 0.95rem; max-width: 560px; }
+    .main-badge {
+      background: var(--orange); color: var(--black);
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; padding: 4px 12px; border-radius: 999px;
+      margin-bottom: 10px; display: inline-block;
+    }
+
+    /* ── DOMICILIO ── */
+    #domicilio {
+      background: var(--black);
+      text-align: center;
+    }
+    .domicilio-card {
+      max-width: 700px; margin: 0 auto;
+      background: linear-gradient(135deg, #1a0800 0%, #110900 100%);
+      border: 1px solid rgba(255,107,0,0.3);
+      border-radius: 20px;
+      padding: 60px 48px;
+    }
+    .domicilio-card .big-icon { font-size: 4rem; margin-bottom: 20px; display: block; }
+    .domicilio-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem; letter-spacing: 4px; color: var(--orange);
+      margin-bottom: 16px;
+    }
+    .domicilio-card p { color: #bbbbbb; font-size: 1rem; line-height: 1.7; }
+
+    /* ── REDES ── */
+    #redes { background: #0F0F0F; text-align: center; }
+    .social-grid {
+      display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+      max-width: 700px; margin: 0 auto;
+    }
+    .social-card {
+      flex: 1; min-width: 240px; max-width: 300px;
+      background: var(--card);
+      border: 1px solid rgba(255,107,0,0.15);
+      border-radius: var(--radius);
+      padding: 40px 28px;
+      text-decoration: none; color: var(--white);
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      display: flex; flex-direction: column; align-items: center; gap: 14px;
+    }
+    .social-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--orange);
+      box-shadow: 0 12px 36px rgba(255,107,0,0.15);
+    }
+    .social-card .s-icon { font-size: 2.4rem; }
+    .social-card .s-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem; letter-spacing: 3px; color: var(--orange);
+    }
+    .social-card .s-handle { font-size: 0.82rem; color: var(--muted); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #080808;
+      border-top: 1px solid rgba(255,107,0,0.1);
+      text-align: center;
+      padding: 36px 24px;
+    }
+    footer .f-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem; letter-spacing: 5px; color: var(--orange);
+    }
+    footer p { color: var(--muted); font-size: 0.8rem; margin-top: 8px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      nav { padding: 14px 20px; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 0.75rem; }
+      section { padding: 70px 16px; }
+      .main-service { flex-direction: column; text-align: center; }
+      .domicilio-card { padding: 40px 24px; }
+    }
+    @media (max-width: 480px) {
+      .nav-links { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="container header-flex">
-            <div class="logo">GLOWCAR</div>
-        </div>
-    </header>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">GLOWCAR</div>
+  <div class="nav-links">
+    <a href="#vehicular">Estética Vehicular</a>
+    <a href="#hogar">Hogar</a>
+    <a href="#domicilio">A Domicilio</a>
+    <a href="#redes">Redes</a>
+  </div>
+</nav>
 
-    <section class="hero">
-        <div class="container">
-            <h1>BIENVENIDOS A <span>GLOWCAR</span></h1>
-            <p>Limpieza integral y renovación profesional de tapizados, alfombras y superficies plásticas con acabado de nivel superior.</p>
-            <div class="badge-domicilio">🚚 ¡VAMOS A DOMICILIO!</div>
-            <div class="ubicacion">📍 BAHÍA BLANCA</div>
-            <p style="font-size: 18px; color: #ff6600; font-weight: bold; margin-top: 10px;">¡Pedí tu Presupuesto Ahora!</p>
-        </div>
-    </section>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">✦ Bahía Blanca ✦</div>
+  <h1 class="hero-title">
+    <span class="glow-word">GLOW</span><br>CAR
+  </h1>
+  <p class="hero-sub">Tu auto, <span>brillando siempre</span></p>
+  <p class="hero-desc">
+    Estética vehicular profesional: tapizados, descontaminación, hidratación de plásticos y mucho más. Tu vehículo en manos expertas.
+  </p>
+  <div class="hero-cta">
+    <a href="#servicios" class="btn-primary">Ver Servicios</a>
+    <a href="#redes" class="btn-outline">Seguinos</a>
+  </div>
+</section>
 
-    <section class="services-section">
-        <div class="container">
-            <h2>Nuestros Servicios</h2>
-            
-            <div class="grid-categorias">
-                <div class="categoria-card">
-                    <h3>🔹 Estética Vehicular</h3>
-                    <ul class="lista-servicios">
-                        <li><strong>Tapizados:</strong> Limpieza profunda y remoción de manchas en asientos (tela o cuero).</li>
-                        <li><strong>Descontaminación de plásticos en gral:</strong> Eliminación de suciedad rebelde y microorganismos en todo el habitáculo.</li>
-                        <li><strong>Hidratación de plásticos:</strong> Nutrición profunda para torpedos y paneles con filtro de protección UV.</li>
-                        <li><strong>Limpieza de techos:</strong> Remoción meticulosa de manchas con técnicas que cuizan el pegamento original.</li>
-                        <li><strong>Limpieza de pisos:</strong> Aspirado extremo, cepillado y lavado de la alfombra base de tu vehículo.</li>
-                    </ul>
-                </div>
+<!-- STRIP -->
+<div class="domicilio-strip">🚗 &nbsp;VAMOS A DOMICILIO &nbsp;🚗</div>
 
-                <div class="categoria-card">
-                    <h3>🔹 Limpieza para el Hogar</h3>
-                    <ul class="lista-servicios">
-                        <li><strong>Sillones y Sofás:</strong> Desinfección extrema, remoción de manchas de uso diario y eliminación de olores.</li>
-                        <li><strong>Alfombras:</strong> Lavado e higienización integral para recuperar texturas y colores originales.</li>
-                        <li><strong>Sommiers:</strong> Eliminación de ácaros, aureolas y suciedad profunda para un descanso saludable.</li>
-                        <li><strong>Sillas:</strong> Renovación total de tapizados en sillas de comedor, living u oficinas.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ESTÉTICA VEHICULAR -->
+<section id="vehicular">
+  <h2 class="section-title">Estética <span>Vehicular</span></h2>
+  <div class="section-divider"></div>
 
-    <section class="contacto-section">
-        <div class="container">
-            <h2>¡Contactanos Hoy Mismo!</h2>
-            <p>Hacé clic en cualquiera de nuestros canales oficiales para cotizar tu servicio o ver nuestros trabajos:</p>
-            
-            <div class="btn-container">
-                <a href="https://wa.me/5492914438419" target="_blank" class="btn btn-whatsapp">💬 WhatsApp (Contacto 1: 2914438419)</a>
-                <a href="https://wa.me/5492996339762" target="_blank" class="btn btn-whatsapp">💬 WhatsApp (Contacto 2: 2996339762)</a>
-                
-                <a href="https://www.instagram.com/glowcar06" target="_blank" class="btn btn-instagram">📸 Instagram (@glowcar06)</a>
-                
-                <a href="https://www.facebook.com/profile.php?id=61590527757764" target="_blank" class="btn btn-facebook">👤 Facebook (GlowCar Oficial)</a>
-            </div>
-        </div>
-    </section>
+  <div class="services-grid">
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 <strong>Glowcar</strong> - Bahía Blanca. Estética Vehicular y del Hogar a Domicilio. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+    <div class="service-card">
+      <span class="service-icon">🪑</span>
+      <h3>Tapizados</h3>
+      <p>Limpieza profunda de tapizado en tela o cuero. Removemos manchas, olores y suciedad acumulada para que el interior de tu auto luzca impecable.</p>
+    </div>
+
+    <div class="service-card">
+      <span class="service-icon">🧴</span>
+      <h3>Descontaminación de Plásticos</h3>
+      <p>Eliminamos contaminantes, óxido y residuos adheridos a plásticos en general, dejándolos limpios y protegidos.</p>
+    </div>
+
+    <div class="service-card">
+      <span class="service-icon">✨</span>
+      <h3>Hidratación de Plásticos – Torpedos</h3>
+      <p>Recuperamos el color y flexibilidad de torpedos, tableros y plásticos interiores con hidratante profesional.</p>
+    </div>
+
+    <div class="service-card">
+      <span class="service-icon">🏁</span>
+      <h3>Limpieza de Techos</h3>
+      <p>Tratamiento y lavado del techo interior del vehículo, removiendo manchas, suciedad y malos olores.</p>
+    </div>
+
+    <div class="service-card">
+      <span class="service-icon">🦶</span>
+      <h3>Limpieza de Pisos</h3>
+      <p>Aspirado profundo y lavado de pisos y alfombras del auto, dejando el habitáculo completamente renovado.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- LIMPIEZA PARA EL HOGAR -->
+<section id="hogar" style="background:#0F0F0F;">
+  <h2 class="section-title">Limpieza para el <span>Hogar</span></h2>
+  <div class="section-divider"></div>
+
+  <div class="services-grid" style="max-width:900px;">
+
+    <div class="service-card">
+      <span class="service-icon">🛋️</span>
+      <h3>Sillones y Sofás</h3>
+      <p>Limpieza profunda de sillones y sofás tapizados. Eliminamos manchas, ácaros y olores para renovar tu living.</p>
+    </div>
+
+    <div class="service-card">
+      <span class="service-icon">🏡</span>
+      <h3>Alfombras</h3>
+      <p>Lavado y tratamiento de alfombras de todos los tamaños. Las dejamos limpias, desinfectadas y libres de polvo.</p>
+    </div>
+
+    <div class="service-card">
+      <span class="service-icon">🛏️</span>
+      <h3>Sommiers</h3>
+      <p>Desinfección y limpieza profunda de sommiers. Eliminamos ácaros, manchas y bacterias para un descanso más saludable.</p>
+    </div>
+
+    <div class="service-card">
+      <span class="service-icon">🪑</span>
+      <h3>Sillas</h3>
+      <p>Limpieza de sillas tapizadas de comedor, escritorio u oficina. Las dejamos como nuevas sin que tengas que salir de tu casa.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- DOMICILIO -->
+<section id="domicilio">
+  <div class="domicilio-card">
+    <span class="big-icon">📍</span>
+    <h3>Vamos a Domicilio</h3>
+    <p>
+      No necesitás moverte. <strong style="color:var(--orange)">GLOWCAR va hasta donde estás vos — en Bahía Blanca.</strong><br><br>
+      Contanos dónde estás y coordinamos el turno. Llevamos todo el equipamiento necesario para dejar tu vehículo y tu hogar impecables.
+    </p>
+    <br>
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:8px;">
+      <a href="https://wa.me/542996339762" target="_blank" class="btn-primary" style="display:inline-flex; align-items:center; gap:10px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22">
+          <circle cx="24" cy="24" r="24" fill="#25D366"/>
+          <path d="M34.5 13.5A14.7 14.7 0 0 0 24 9C16.3 9 10 15.3 10 23c0 2.5.7 4.9 1.9 7L10 39l9.3-1.9A14.9 14.9 0 0 0 24 38.9c7.7 0 14-6.3 14-14 0-3.7-1.5-7.3-3.5-9.9v-.5zM24 36.4a12.4 12.4 0 0 1-6.3-1.7l-.5-.3-5.1 1.3 1.4-4.9-.3-.5A12.3 12.3 0 0 1 11.6 23c0-6.8 5.6-12.4 12.4-12.4 3.3 0 6.4 1.3 8.7 3.6a12.3 12.3 0 0 1 3.6 8.8c0 6.9-5.5 12.4-12.3 12.4zm6.8-9.3c-.4-.2-2.2-1.1-2.6-1.2-.4-.1-.6-.2-.9.2-.3.4-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.8-2.2-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.2.2-.4.4-.6.1-.2.1-.4 0-.6-.1-.2-.9-2.1-1.2-2.9-.3-.7-.6-.6-.9-.6h-.7c-.2 0-.6.1-.9.5-.3.4-1.3 1.2-1.3 3s1.3 3.5 1.5 3.7c.2.2 2.6 4 6.3 5.6.9.4 1.6.6 2.1.8.9.3 1.7.2 2.3.1.7-.1 2.2-.9 2.5-1.8.3-.8.3-1.6.2-1.7-.1-.2-.3-.3-.7-.4z" fill="#fff"/>
+        </svg>
+        299 633-9762
+      </a>
+      <a href="https://wa.me/542914438419" target="_blank" class="btn-primary" style="display:inline-flex; align-items:center; gap:10px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22">
+          <circle cx="24" cy="24" r="24" fill="#25D366"/>
+          <path d="M34.5 13.5A14.7 14.7 0 0 0 24 9C16.3 9 10 15.3 10 23c0 2.5.7 4.9 1.9 7L10 39l9.3-1.9A14.9 14.9 0 0 0 24 38.9c7.7 0 14-6.3 14-14 0-3.7-1.5-7.3-3.5-9.9v-.5zM24 36.4a12.4 12.4 0 0 1-6.3-1.7l-.5-.3-5.1 1.3 1.4-4.9-.3-.5A12.3 12.3 0 0 1 11.6 23c0-6.8 5.6-12.4 12.4-12.4 3.3 0 6.4 1.3 8.7 3.6a12.3 12.3 0 0 1 3.6 8.8c0 6.9-5.5 12.4-12.3 12.4zm6.8-9.3c-.4-.2-2.2-1.1-2.6-1.2-.4-.1-.6-.2-.9.2-.3.4-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.8-2.2-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.2.2-.4.4-.6.1-.2.1-.4 0-.6-.1-.2-.9-2.1-1.2-2.9-.3-.7-.6-.6-.9-.6h-.7c-.2 0-.6.1-.9.5-.3.4-1.3 1.2-1.3 3s1.3 3.5 1.5 3.7c.2.2 2.6 4 6.3 5.6.9.4 1.6.6 2.1.8.9.3 1.7.2 2.3.1.7-.1 2.2-.9 2.5-1.8.3-.8.3-1.6.2-1.7-.1-.2-.3-.3-.7-.4z" fill="#fff"/>
+        </svg>
+        291 443-8419
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- REDES -->
+<section id="redes">
+  <h2 class="section-title">Encontranos en <span>Redes</span></h2>
+  <div class="section-divider"></div>
+
+  <div class="social-grid">
+    <a class="social-card"
+       href="https://www.facebook.com/profile.php?id=61590527757764"
+       target="_blank" rel="noopener noreferrer">
+      <span class="s-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="52" height="52">
+          <circle cx="24" cy="24" r="24" fill="#1877F2"/>
+          <path d="M32 24h-5v-3c0-1.4.9-1.8 1.5-1.8H32v-5l-4.9-.1c-5.1 0-6.1 3.8-6.1 6.2V24h-3v5h3v13h6V29h4.5L32 24z" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="s-name">Facebook</span>
+      <span class="s-handle">GLOWCAR</span>
+    </a>
+
+    <a class="social-card"
+       href="https://www.instagram.com/glowcar06"
+       target="_blank" rel="noopener noreferrer">
+      <span class="s-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="52" height="52">
+          <radialGradient id="ig-grad" cx="19%" cy="99%" r="108%">
+            <stop offset="0%" stop-color="#ffd600"/>
+            <stop offset="20%" stop-color="#ff7a00"/>
+            <stop offset="40%" stop-color="#ff0069"/>
+            <stop offset="70%" stop-color="#d300c5"/>
+            <stop offset="100%" stop-color="#7638fa"/>
+          </radialGradient>
+          <rect width="48" height="48" rx="12" fill="url(#ig-grad)"/>
+          <rect x="13" y="13" width="22" height="22" rx="6" fill="none" stroke="#fff" stroke-width="2.5"/>
+          <circle cx="24" cy="24" r="5.5" fill="none" stroke="#fff" stroke-width="2.5"/>
+          <circle cx="34" cy="14" r="1.8" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="s-name">Instagram</span>
+      <span class="s-handle">@glowcar06</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">GLOWCAR</div>
+  <p>Estética Vehicular & Limpieza para el Hogar · Bahía Blanca · Vamos a Domicilio</p>
+</footer>
 
 </body>
 </html>
