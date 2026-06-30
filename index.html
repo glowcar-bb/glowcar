@@ -467,6 +467,40 @@
     }
     .social-card .s-handle { font-size: 0.82rem; color: var(--muted); }
 
+    .promo-banner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      background: linear-gradient(135deg, rgba(255,107,0,0.12), rgba(255,60,0,0.08));
+      border: 1px solid rgba(255,107,0,0.3);
+      border-radius: var(--radius);
+      padding: 20px 32px;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+    .promo-tag {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      color: var(--orange);
+      background: rgba(255,107,0,0.12);
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,107,0,0.3);
+    }
+    .promo-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 3px;
+      color: var(--text-heading);
+    }
+    .promo-off {
+      color: var(--orange);
+      font-size: 2.2rem;
+    }
+
     /* ── ÚLTIMAS PUBLICACIONES ── */
     #publicaciones {
       background: var(--bg-page);
@@ -597,6 +631,33 @@
       border-top: 1px solid rgba(255,107,0,0.1);
       padding-top: 16px;
       margin: 0;
+    }
+
+    .pago-btns {
+      display: flex;
+      gap: 12px;
+    }
+    .pago-btn {
+      flex: 1;
+      padding: 14px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,107,0,0.2);
+      background: var(--bg-input);
+      color: var(--text);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+    }
+    .pago-btn:hover {
+      border-color: rgba(255,107,0,0.5);
+    }
+    .pago-btn.selected {
+      border-color: var(--orange);
+      background: rgba(255,107,0,0.12);
+      color: var(--orange);
+      font-weight: 600;
     }
 
     /* ── FOOTER ── */
@@ -933,6 +994,12 @@
   <h2 class="section-title fade-in">Estética <span>Vehicular</span></h2>
   <div class="section-divider"></div>
 
+  <!-- BANNER PROMO -->
+  <div class="promo-banner fade-in">
+    <span class="promo-tag">SEMANA DE LA MARCA</span>
+    <span class="promo-text">25% <span class="promo-off">OFF</span> en <strong>VOLKSWAGEN</strong></span>
+  </div>
+
   <div class="services-grid">
 
     <div class="service-card fade-in">
@@ -1109,6 +1176,18 @@
       <textarea id="f-mensaje" placeholder="Contanos más detalles, tu dirección, o cualquier consulta..."></textarea>
     </div>
 
+    <div class="form-group">
+      <label>Medio de pago</label>
+      <div class="pago-btns">
+        <button type="button" class="pago-btn" id="pago-efectivo" onclick="seleccionarPago('efectivo')">
+          💵 Efectivo
+        </button>
+        <button type="button" class="pago-btn" id="pago-transferencia" onclick="seleccionarPago('transferencia')">
+          📲 Transferencia
+        </button>
+      </div>
+    </div>
+
     <button class="btn-primary" onclick="enviarWA()" style="width:100%; font-size:1rem; padding:16px; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px;">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><circle cx="24" cy="24" r="24" fill="#fff" fill-opacity=".25"/><path d="M34.5 13.5A14.7 14.7 0 0 0 24 9C16.3 9 10 15.3 10 23c0 2.5.7 4.9 1.9 7L10 39l9.3-1.9A14.9 14.9 0 0 0 24 38.9c7.7 0 14-6.3 14-14 0-3.7-1.5-7.3-3.5-9.9v-.5zM24 36.4a12.4 12.4 0 0 1-6.3-1.7l-.5-.3-5.1 1.3 1.4-4.9-.3-.5A12.3 12.3 0 0 1 11.6 23c0-6.8 5.6-12.4 12.4-12.4 3.3 0 6.4 1.3 8.7 3.6a12.3 12.3 0 0 1 3.6 8.8c0 6.9-5.5 12.4-12.3 12.4zm6.8-9.3c-.4-.2-2.2-1.1-2.6-1.2-.4-.1-.6-.2-.9.2-.3.4-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.8-2.2-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.2.2-.4.4-.6.1-.2.1-.4 0-.6-.1-.2-.9-2.1-1.2-2.9-.3-.7-.6-.6-.9-.6h-.7c-.2 0-.6.1-.9.5-.3.4-1.3 1.2-1.3 3s1.3 3.5 1.5 3.7c.2.2 2.6 4 6.3 5.6.9.4 1.6.6 2.1.8.9.3 1.7.2 2.3.1.7-.1 2.2-.9 2.5-1.8.3-.8.3-1.6.2-1.7-.1-.2-.3-.3-.7-.4z" fill="#fff"/></svg>
       Enviar por WhatsApp
@@ -1118,6 +1197,13 @@
 
 <script>
   let destNumero = '542914070116'; // Benjamín
+  let medioPago = '';
+
+  function seleccionarPago(tipo) {
+    medioPago = tipo;
+    document.querySelectorAll('.pago-btn').forEach(b => b.classList.remove('selected'));
+    document.getElementById('pago-' + tipo).classList.add('selected');
+  }
 
   function seleccionarDest(id, numero) {
     document.querySelectorAll('.dest-btn').forEach(b => b.classList.remove('selected'));
@@ -1169,7 +1255,7 @@
     if (!nombre)         { alert('Por favor ingresá tu nombre.'); return; }
 
     const listaServicios = servicios.map(s => `  • ${s}`).join('\n');
-    const texto = `¡Hola GLOWCAR! 👋\n\n*Nombre:* ${nombre}\n*Servicios:*\n${listaServicios}${mensaje ? '\n*Mensaje:* ' + mensaje : ''}\n\nQuiero reservar un turno 🙌`;
+    const texto = `¡Hola GLOWCAR! 👋\n\n*Nombre:* ${nombre}\n*Servicios:*\n${listaServicios}${medioPago ? '\n*Medio de pago:* ' + (medioPago === 'efectivo' ? '💵 Efectivo' : '📲 Transferencia') : ''}${mensaje ? '\n*Mensaje:* ' + mensaje : ''}\n\nQuiero reservar un turno 🙌`;
     const url = `https://wa.me/${destNumero}?text=${encodeURIComponent(texto)}`;
     window.open(url, '_blank');
   }
@@ -1233,12 +1319,19 @@
           <div class="pub-platform-handle">GLOWCAR</div>
         </div>
       </div>
-      <div class="pub-embed-wrapper" style="min-height:120px; align-items:center; justify-content:center; flex-direction:column; gap:8px;">
+      <div class="pub-embed-wrapper">
         <!-- =====================================================
              👇 CAMBIÁ SOLO ESTA URL PARA ACTUALIZAR FACEBOOK
-             Pegá el link de la publicación reemplazando la URL
+             Línea ~1250 · Pegame el nuevo link y te lo proceso
              ===================================================== -->
-        <p style="color:var(--muted); font-size:0.85rem; text-align:center; padding:24px;">Próximamente publicaciones aquí</p>
+        <iframe
+          src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1BRDqR4cP5%2F&show_text=true&width=380"
+          width="380" height="580" frameborder="0" scrolling="no"
+          allowfullscreen="true"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          style="max-width:100%; border:none;">
+        </iframe>
+        <!-- ===================================================== -->
       </div>
     </div>
 
@@ -1265,12 +1358,18 @@
           <div class="pub-platform-handle">@glowcar02</div>
         </div>
       </div>
-      <div class="pub-embed-wrapper" style="min-height:120px; align-items:center; justify-content:center;">
+      <div class="pub-embed-wrapper">
         <!-- =====================================================
              👇 CAMBIÁ SOLO ESTA URL PARA ACTUALIZAR INSTAGRAM
                 Formato: https://www.instagram.com/p/CODIGO/embed/captioned/
              ===================================================== -->
-        <p style="color:var(--muted); font-size:0.85rem; text-align:center; padding:24px;">Próximamente publicaciones aquí</p>
+        <iframe
+          src="https://www.instagram.com/p/DaOLz66muLW/embed/captioned/"
+          width="380" height="480" frameborder="0" scrolling="no"
+          allowtransparency="true"
+          style="border:none; overflow:hidden; max-width:100%;">
+        </iframe>
+        <!-- ===================================================== -->
       </div>
     </div>
 
@@ -1330,7 +1429,3 @@
 
 </body>
 </html>
-
-    
-    
-      
